@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./AdminDashboard.css";
 
 function AdminDashboard() {
@@ -57,7 +58,7 @@ function AdminDashboard() {
         if (loader && mounted) setNotificationsLoading(true);
 
         const response = await fetch(
-          "http://localhost:5000/api/notifications",
+          API_URL("/api/notifications"),
           {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
@@ -96,7 +97,7 @@ function AdminDashboard() {
   async function markNotificationAsRead(id) {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/notifications/${id}/read`,
+        API_URL(`/api/notifications/${id}/read`),
         {
           method: "PUT",
           headers: {
@@ -129,7 +130,7 @@ function AdminDashboard() {
   async function markAllNotificationsAsRead() {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/notifications/read-all",
+        API_URL("/api/notifications/read-all"),
         {
           method: "PUT",
           headers: {
@@ -160,7 +161,7 @@ function AdminDashboard() {
       const notification = notifications.find((item) => item._id === id);
 
       const response = await fetch(
-        `http://localhost:5000/api/notifications/${id}`,
+        API_URL(`/api/notifications/${id}`),
         {
           method: "DELETE",
           headers: {
@@ -205,7 +206,7 @@ function AdminDashboard() {
     async function fetchStatistics() {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/admin/dashboard/stats",
+          API_URL("/api/admin/dashboard/stats"),
           {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
@@ -238,7 +239,7 @@ function AdminDashboard() {
     async function fetchAnalytics() {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/admin/dashboard/analytics",
+          API_URL("/api/admin/dashboard/analytics"),
           {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
@@ -278,7 +279,7 @@ function AdminDashboard() {
       setActivityError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/activities",
+        API_URL("/api/activities"),
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { API_URL } from "../config/api";
 import "./AdminUsers.css";
 
 function AdminUsers() {
@@ -25,7 +26,7 @@ function AdminUsers() {
       const token = sessionStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/users",
+        API_URL("/api/users"),
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -55,9 +56,10 @@ function AdminUsers() {
   }, [fetchUsers]);
 
   // Search Users
-  const filteredUsers = users.filter((user) =>
-    user.name?.toLowerCase().includes(search.toLowerCase()) ||
-    user.email?.toLowerCase().includes(search.toLowerCase())
+  const filteredUsers = users.filter(
+    (user) =>
+      user.name?.toLowerCase().includes(search.toLowerCase()) ||
+      user.email?.toLowerCase().includes(search.toLowerCase())
   );
 
   // Delete User
@@ -75,7 +77,7 @@ function AdminUsers() {
       const token = sessionStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/users/${user._id}`,
+        API_URL(`/api/users/${user._id}`),
         {
           method: "DELETE",
           headers: {
@@ -94,7 +96,6 @@ function AdminUsers() {
       setSelectedUser(null);
 
       await fetchUsers(true);
-
     } catch (error) {
       setMessage(error.message);
     } finally {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./WordDetails.css";
 
 function WordDetails() {
@@ -21,7 +22,7 @@ function WordDetails() {
         setError("");
 
         const response = await fetch(
-          `http://localhost:5000/api/words/${id}`
+          API_URL(`/api/words/${id}`)
         );
 
         const data = await response.json();
@@ -36,7 +37,7 @@ function WordDetails() {
         if (token) {
           try {
             await fetch(
-              "http://localhost:5000/api/recently-viewed/add",
+              API_URL("/api/recently-viewed/add"),
               {
                 method: "POST",
                 headers: {
@@ -70,7 +71,7 @@ function WordDetails() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/favourites",
+          API_URL("/api/favourites"),
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -107,8 +108,8 @@ function WordDetails() {
 
       const response = await fetch(
         isFavourite
-          ? `http://localhost:5000/api/favourites/remove/${id}`
-          : "http://localhost:5000/api/favourites/add",
+          ? API_URL(`/api/favourites/remove/${id}`)
+          : API_URL("/api/favourites/add"),
         {
           method: isFavourite ? "DELETE" : "POST",
           headers: {

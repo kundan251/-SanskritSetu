@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./Glossary.css";
 
 function Glossary() {
@@ -53,9 +54,7 @@ function Glossary() {
   useEffect(() => {
     const fetchWords = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/words"
-        );
+        const response = await fetch(API_URL("/api/words"));
 
         const data = await response.json();
 
@@ -80,14 +79,11 @@ function Glossary() {
       if (!token) return;
 
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/favourites",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await fetch(API_URL("/api/favourites"), {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const data = await response.json();
 
@@ -116,8 +112,8 @@ function Glossary() {
     try {
       const response = await fetch(
         isFavourite
-          ? `http://localhost:5000/api/favourites/remove/${wordId}`
-          : "http://localhost:5000/api/favourites/add",
+          ? API_URL(`/api/favourites/remove/${wordId}`)
+          : API_URL("/api/favourites/add"),
         {
           method: isFavourite ? "DELETE" : "POST",
           headers: {
@@ -151,7 +147,7 @@ function Glossary() {
     if (token) {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/recently-viewed/add",
+          API_URL("/api/recently-viewed/add"),
           {
             method: "POST",
             headers: {

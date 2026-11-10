@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./Favourites.css";
-
 
 // Custom dropdown for matching the website theme
 function CustomDropdown({ value, options, onChange, ariaLabel }) {
@@ -98,14 +98,11 @@ function Favourites() {
       }
 
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/favourites",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await fetch(API_URL("/api/favourites"), {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const data = await response.json();
 
@@ -128,7 +125,7 @@ function Favourites() {
   const handleRemoveFavourite = async (wordId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/favourites/remove/${wordId}`,
+        API_URL(`/api/favourites/remove/${wordId}`),
         {
           method: "DELETE",
           headers: {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../config/api";
 import "./AdminWords.css";
 
 const initialForm = {
@@ -28,7 +29,7 @@ function AdminWords() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/api/words");
+      const response = await fetch(API_URL("/api/words"));
       const data = await response.json();
 
       if (!response.ok) {
@@ -102,8 +103,8 @@ function AdminWords() {
 
     try {
       const url = editingId
-        ? `http://localhost:5000/api/words/${editingId}`
-        : "http://localhost:5000/api/words";
+        ? API_URL(`/api/words/${editingId}`)
+        : API_URL("/api/words");
 
       const response = await fetch(url, {
         method: editingId ? "PUT" : "POST",
@@ -136,7 +137,7 @@ function AdminWords() {
   // Delete Word
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this word?",
+      "Are you sure you want to delete this word?"
     );
 
     if (!confirmDelete) return;
@@ -144,7 +145,7 @@ function AdminWords() {
     setMessage("");
 
     try {
-      const response = await fetch(`http://localhost:5000/api/words/${id}`, {
+      const response = await fetch(API_URL(`/api/words/${id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

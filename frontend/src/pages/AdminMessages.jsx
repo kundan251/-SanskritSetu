@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../config/api";
 import "./AdminMessages.css";
 
 function AdminMessages() {
@@ -22,14 +23,11 @@ function AdminMessages() {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        "http://localhost:5000/api/messages",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(API_URL("/api/messages"), {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const data = await response.json();
 
@@ -53,17 +51,18 @@ function AdminMessages() {
   }, []);
 
   // Search Messages
-  const filteredMessages = messages.filter((message) =>
-    message.name?.toLowerCase().includes(search.toLowerCase()) ||
-    message.email?.toLowerCase().includes(search.toLowerCase()) ||
-    message.subject?.toLowerCase().includes(search.toLowerCase())
+  const filteredMessages = messages.filter(
+    (message) =>
+      message.name?.toLowerCase().includes(search.toLowerCase()) ||
+      message.email?.toLowerCase().includes(search.toLowerCase()) ||
+      message.subject?.toLowerCase().includes(search.toLowerCase())
   );
 
   // Update Status
   const handleStatusChange = async (id, status) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/messages/${id}/status`,
+        API_URL(`/api/messages/${id}/status`),
         {
           method: "PATCH",
           headers: {
@@ -97,7 +96,7 @@ function AdminMessages() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/messages/${id}`,
+        API_URL(`/api/messages/${id}`),
         {
           method: "DELETE",
           headers: {
@@ -132,7 +131,6 @@ function AdminMessages() {
 
   return (
     <div className="admin-messages-page">
-
       {/* Header */}
       <div className="admin-messages-header">
         <div>
@@ -157,7 +155,6 @@ function AdminMessages() {
 
       {/* Statistics */}
       <div className="message-stats-grid">
-
         <div className="message-stat-card">
           <span>📩</span>
           <p>Total Messages</p>
@@ -181,7 +178,6 @@ function AdminMessages() {
           <p>Replied Messages</p>
           <h2>{statistics.repliedMessages}</h2>
         </div>
-
       </div>
 
       {/* Search */}
@@ -196,12 +192,10 @@ function AdminMessages() {
 
       {/* Messages Table */}
       <div className="messages-table-container">
-
         {loading ? (
           <p className="messages-loading">Loading messages...</p>
         ) : (
           <table className="messages-table">
-
             <thead>
               <tr>
                 <th>Name</th>
@@ -258,7 +252,6 @@ function AdminMessages() {
                 </tr>
               )}
             </tbody>
-
           </table>
         )}
       </div>
@@ -267,7 +260,6 @@ function AdminMessages() {
       {selectedMessage && (
         <div className="message-modal-overlay">
           <div className="message-modal-card">
-
             <div className="message-modal-header">
               <h2>Message Details</h2>
 
@@ -305,7 +297,6 @@ function AdminMessages() {
             </div>
 
             <div className="message-modal-actions">
-
               <button
                 onClick={() =>
                   handleStatusChange(selectedMessage._id, "Read")
@@ -321,13 +312,10 @@ function AdminMessages() {
               >
                 Mark as Replied
               </button>
-
             </div>
-
           </div>
         </div>
       )}
-
     </div>
   );
 }

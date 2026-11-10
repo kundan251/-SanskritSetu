@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./Profile.css";
 
 function AdminProfile() {
@@ -36,7 +37,7 @@ function AdminProfile() {
         const token = sessionStorage.getItem("token");
 
         const response = await fetch(
-          "http://localhost:5000/api/auth/profile",
+          API_URL("/api/auth/profile"),
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -86,7 +87,7 @@ function AdminProfile() {
       const token = sessionStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/profile",
+        API_URL("/api/auth/profile"),
         {
           method: "PUT",
           headers: {
@@ -150,7 +151,7 @@ function AdminProfile() {
       const token = sessionStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/change-password",
+        API_URL("/api/auth/change-password"),
         {
           method: "PUT",
           headers: {

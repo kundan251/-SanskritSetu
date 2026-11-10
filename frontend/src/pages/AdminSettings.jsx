@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./AdminSettings.css";
 
 function AdminSettings() {
@@ -47,7 +48,7 @@ function AdminSettings() {
         const token = sessionStorage.getItem("token");
 
         const response = await fetch(
-          "http://localhost:5000/api/settings",
+          API_URL("/api/settings"),
           {
             method: "GET",
             headers: {
@@ -80,7 +81,6 @@ function AdminSettings() {
             ...data.settings.security,
           }));
         }
-
       } catch (err) {
         setError(err.message);
       } finally {
@@ -127,7 +127,7 @@ function AdminSettings() {
       const token = sessionStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/settings",
+        API_URL("/api/settings"),
         {
           method: "PUT",
           headers: {
@@ -153,7 +153,6 @@ function AdminSettings() {
       setMessage(
         data.message || "Settings saved successfully!"
       );
-
     } catch (err) {
       setError(err.message);
     } finally {

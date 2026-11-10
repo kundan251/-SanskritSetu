@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -19,7 +20,7 @@ function Dashboard() {
   // Fetch Favourite Words
   const fetchFavourites = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/favourites", {
+      const response = await fetch(API_URL("/api/favourites"), {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -40,12 +41,9 @@ function Dashboard() {
   // Fetch Recently Viewed Words
   const fetchRecentlyViewed = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/recently-viewed",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await fetch(API_URL("/api/recently-viewed"), {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
       const data = await response.json();
 
@@ -64,7 +62,7 @@ function Dashboard() {
   // Fetch Total Words and Categories
   const fetchGlossaryStats = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/words");
+      const response = await fetch(API_URL("/api/words"));
 
       const data = await response.json();
 
@@ -118,7 +116,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/favourites/remove/${wordId}`,
+        API_URL(`/api/favourites/remove/${wordId}`),
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
