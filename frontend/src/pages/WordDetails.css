@@ -1,0 +1,277 @@
+.word-details-page {
+  min-height: 100vh;
+  background: #faf8f3;
+  color: #33271f;
+  padding-bottom: 70px;
+}
+
+/* Header */
+
+.word-details-header {
+  text-align: center;
+  padding: 65px 20px 55px;
+  background: linear-gradient(135deg, #f4e8d2, #fffaf0);
+}
+
+.word-details-header span {
+  color: #95642f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.word-details-header h1 {
+  font-size: 42px;
+  margin: 15px 0;
+  color: #572c25;
+}
+
+.word-details-header p {
+  color: #76685d;
+  font-size: 15px;
+}
+
+/* Container */
+
+.word-details-container {
+  max-width: 950px;
+  margin: 45px auto;
+  padding: 0 20px;
+}
+
+.word-back-link {
+  display: inline-block;
+  color: #8a4b32;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.word-back-link:hover {
+  color: #bd873e;
+  transform: translateX(-4px);
+}
+
+/* Main Card */
+
+.word-details-card {
+  background: #fff;
+  padding: 45px;
+  border-radius: 18px;
+  border: 1px solid #eadcc8;
+  box-shadow: 0 12px 35px rgba(74, 46, 27, 0.08);
+}
+
+/* Category */
+
+.word-details-category {
+  display: inline-block;
+  background: #f5ead8;
+  color: #89582e;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Sanskrit Title */
+
+.word-details-title {
+  text-align: center;
+  padding: 35px 10px;
+}
+
+.word-details-title h2 {
+  color: #632e26;
+  font-size: 52px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.word-details-transliteration {
+  color: #a17b52;
+  font-size: 19px;
+  margin-top: 10px;
+}
+
+/* Divider */
+
+.word-details-divider {
+  height: 1px;
+  background: #eadcc8;
+  margin: 10px 0 30px;
+}
+
+/* Meanings */
+
+.word-meaning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.word-meaning-box {
+  background: #faf6ef;
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid #a97842;
+}
+
+.word-meaning-box span {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #987044;
+  font-weight: 700;
+}
+
+.word-meaning-box h3 {
+  font-size: 20px;
+  color: #4c3027;
+  margin-top: 12px;
+}
+
+/* Description */
+
+.word-details-description {
+  margin-top: 35px;
+}
+
+.word-details-description h3 {
+  font-size: 23px;
+  color: #632e26;
+  margin-bottom: 15px;
+}
+
+.word-details-description p {
+  color: #75675c;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* Actions */
+
+.word-details-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #eadcc8;
+}
+
+.details-favourite-btn,
+.details-back-btn {
+  padding: 13px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.details-favourite-btn {
+  background: #682f28;
+  color: #fff;
+  border: 1px solid #682f28;
+}
+
+.details-favourite-btn:hover {
+  background: #8a4436;
+}
+
+.details-favourite-btn.favourite-active {
+  background: #f5e8e3;
+  color: #8a3028;
+}
+
+.details-favourite-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.details-back-btn {
+  background: #f5ead8;
+  color: #75462b;
+  border: 1px solid #ead7bd;
+}
+
+.details-back-btn:hover {
+  background: #ead7bd;
+}
+
+/* Loading and Error */
+
+.word-details-status {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #632e26;
+}
+
+.word-details-status h2 {
+  font-size: 28px;
+}
+
+.word-details-status p {
+  color: #76685d;
+}
+
+.word-details-loader {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #eadcc8;
+  border-top: 4px solid #8a4b32;
+  border-radius: 50%;
+  animation: wordDetailsSpin 0.8s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes wordDetailsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.back-glossary-btn {
+  margin-top: 15px;
+  background: #682f28;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .word-details-header h1 {
+    font-size: 32px;
+  }
+
+  .word-details-card {
+    padding: 25px 18px;
+  }
+
+  .word-details-title h2 {
+    font-size: 38px;
+  }
+
+  .word-meaning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .word-details-actions {
+    flex-direction: column;
+  }
+
+  .word-details-actions button,
+  .word-details-actions a {
+    text-align: center;
+  }
+}

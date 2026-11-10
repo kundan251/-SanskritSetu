@@ -1,0 +1,428 @@
+.home-page {
+color: #33291f;
+background: #fffdf8;
+}
+
+.hero-section {
+min-height: 470px;
+padding: 70px 8%;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background-image: url("../assets/HeroImage.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+box-sizing: border-box;
+}
+
+.hero-content {
+width: 100%;
+max-width: 850px;
+}
+
+.hero-tag {
+display: inline-block;
+padding: 9px 16px;
+border: 1px solid #d8bd7a;
+border-radius: 30px;
+color: #8a6426;
+font-size: 12px;
+letter-spacing: 2px;
+font-weight: 700;
+}
+
+.hero-content h1 {
+margin: 25px 0 15px;
+font-size: clamp(36px, 5vw, 58px);
+line-height: 1.2;
+color: #64212b;
+}
+
+.hero-content h1 span {
+color: #b18435;
+}
+
+.hero-content > p {
+max-width: 650px;
+margin: 0 auto;
+color: #655b4e;
+font-size: 17px;
+line-height: 1.8;
+}
+
+.hero-search {
+max-width: 620px;
+margin: 32px auto 0;
+padding: 7px;
+display: flex;
+gap: 10px;
+background: white;
+border: 1px solid #e7dcc8;
+border-radius: 10px;
+box-shadow: 0 8px 25px #5e3c1510;
+}
+
+.hero-search input {
+flex: 1;
+min-width: 0;
+padding: 14px;
+border: none;
+outline: none;
+background: transparent;
+font-size: 15px;
+}
+
+.search-button {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 12px 24px;
+background: #782630;
+color: white;
+border-radius: 7px;
+text-decoration: none;
+}
+
+.search-button:hover {
+background: #591923;
+}
+
+.hero-features {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 25px;
+margin-top: 25px;
+color: #67563e;
+font-size: 14px;
+}
+
+.categories-section,
+.popular-section {
+padding: 65px 7%;
+}
+
+.section-heading {
+text-align: center;
+margin-bottom: 35px;
+}
+
+.section-heading > span {
+color: #a77b2e;
+font-size: 12px;
+letter-spacing: 2px;
+font-weight: 700;
+}
+
+.section-heading h2 {
+margin: 12px 0;
+color: #64212b;
+font-size: clamp(26px, 3vw, 36px);
+}
+
+.section-heading p {
+color: #71675b;
+line-height: 1.7;
+}
+
+
+/* Categories Layout */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  width: 100%;
+}
+
+/* Common Card Design */
+
+.category-card {
+ width: 100%;
+  min-width: 0;
+  min-height: 230px;
+  padding: 20px 12px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(70, 40, 20, 0.12);
+}
+
+/* Different Background Colors */
+
+.yoga-card {
+  background: #fff0df;
+  border-color: #f5dfc5;
+}
+
+.philosophy-card {
+  background: #edf5e5;
+  border-color: #dce9d1;
+}
+
+.ayurveda-card {
+  background: #e5f3fa;
+  border-color: #d0e8f4;
+}
+
+.spirituality-card {
+  background: #f4eafa;
+  border-color: #e7d8f2;
+}
+
+/* Icons */
+
+.category-icon {
+  width: 65px;
+  height: 65px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 38px;
+  border-radius: 50%;
+}
+
+/* Sanskrit Heading */
+
+.category-card h3 {
+  margin: 0 0 5px;
+  color: #72242c;
+  font-size: 25px;
+}
+
+/* English Heading */
+
+.category-card h4 {
+  margin-bottom: 10px;
+  color: #51241f;
+  font-size: 17px;
+}
+
+/* Description */
+
+.category-card p {
+  max-width: 240px;
+  margin: 0 0 14px;
+  color: #51483f;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Explore Link */
+
+.category-card a {
+  color: #96651e;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.category-card a:hover {
+  color: #72242c;
+}
+
+
+
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.word-card {
+  min-width: 0;
+  padding: 25px 18px;
+  text-align: center;
+  border: 1px solid #eee0ce;
+  border-radius: 14px;
+  background: #fff4e7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.word-card:nth-child(2) {
+  background: #edf5e5;
+}
+
+.word-card:nth-child(3) {
+  background: #e5f3fa;
+}
+
+.word-card:nth-child(4) {
+  background: #f4eafa;
+}
+
+.word-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(70, 40, 20, 0.1);
+}
+
+.word-card h3 {
+  font-size: 34px;
+  color: #782630;
+  margin-bottom: 8px;
+}
+
+.word-card h4 {
+  font-size: 19px;
+  color: #51241f;
+  margin-bottom: 10px;
+}
+
+.word-card p {
+  color: #51483f;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+.glossary-link {
+margin-top: 35px;
+text-align: center;
+}
+
+.glossary-link a,
+.about-banner a {
+display: inline-block;
+padding: 13px 22px;
+background: #782630;
+color: white;
+text-decoration: none;
+border-radius: 7px;
+}
+
+
+.knowledge-banner {
+  min-height: 280px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-image: url("../assets/footer-bg-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-top: 2px solid #f0d7b5;
+  border-bottom: 2px solid #f0d7b5;
+}
+
+.knowledge-banner h2 {
+  color: #a9441b;
+  font-size: clamp(27px, 4vw, 48px);
+  margin-bottom: 12px;
+}
+
+.knowledge-banner p {
+  color: #79563e;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.knowledge-button {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #7b2d26;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+/* .knowledge-button {
+  padding: 13px 28px;
+  background: #781f2b;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+} */
+
+.knowledge-button:hover {
+  background: #54141d;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .knowledge-banner {
+    min-height: 240px;
+    padding: 30px 15px;
+  }
+
+  .knowledge-banner h2 {
+    font-size: 24px;
+  }
+
+  .knowledge-banner p {
+    font-size: 15px;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+.category-grid,
+.word-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.categories-section,
+.popular-section {
+padding: 50px 5%;
+}
+}
+
+@media (max-width: 520px) {
+.hero-section {
+padding: 55px 5%;
+}
+
+.hero-search {
+flex-wrap: wrap;
+}
+
+.hero-search input {
+width: 100%;
+flex-basis: 100%;
+}
+
+.search-button {
+width: 100%;
+box-sizing: border-box;
+}
+
+.category-grid,
+.word-grid {
+grid-template-columns: 1fr;
+}
+
+.category-card {
+    min-height: 210px;
+}
+
+.hero-features {
+gap: 12px;
+}
+}

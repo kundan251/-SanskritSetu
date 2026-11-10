@@ -1,0 +1,128 @@
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f8f3e9;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 35px;
+  background: #fffdf8;
+  border: 1px solid #e8d8bb;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(70, 35, 25, 0.1);
+}
+
+.signup-logo {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #702b24;
+  color: #f8d98b;
+  font-size: 35px;
+}
+.signup-card h1 {
+  color: #702b24;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.signup-subtitle {
+  text-align: center;
+  color: #75665c;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.signup-card form > label {
+  display: block;
+  margin: 15px 0 7px;
+  color: #452a24;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.signup-card form > input {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #ddcbb4;
+  border-radius: 7px;
+  outline: none;
+  background: white;
+  font-size: 14px;
+}
+
+.signup-card form > input:focus {
+  border-color: #702b24;
+  box-shadow: 0 0 0 2px rgba(112, 43, 36, 0.1);
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 20px;
+  color: #66564b;
+  font-size: 13px;
+}
+
+.show-password input {
+  accent-color: #702b24;
+}
+
+.show-password label {
+  cursor: pointer;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 7px;
+  background: #702b24;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.signup-button:hover {
+  background: #511c18;
+}
+
+.login-link {
+  margin-top: 22px;
+  text-align: center;
+  color: #75665c;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #702b24;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 25px 20px;
+  }
+
+  .signup-card h1 {
+    font-size: 24px;
+  }
+}
